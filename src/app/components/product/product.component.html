@@ -21,8 +21,10 @@
             <th>Fiyat</th>
             <th>Kdv'li Fiyat</th>
             <th>Stok Adedi</th>
+            <th></th>
         </tr>
     </thead>
+    <tbody>
     <tr *ngFor="let product of products |filterPipe:filterText">
         <td>{{product.productId}}</td>
         <td>{{product.productName |uppercase}}</td>
@@ -30,5 +32,8 @@
         <td>{{product.unitPrice | currency}}</td>
         <td>{{product.unitPrice | vatAdded:10 | currency }}</td>
         <td>{{product.unitsInStock}}</td>
+        <td> <button (click)="addToCart(product)" type="button" class="btn btn-success btn-sm">Sepete Ekle</button></td>
+       
     </tr>
+</tbody>
 </table>
